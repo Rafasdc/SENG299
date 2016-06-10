@@ -54,6 +54,13 @@ function makeRectangle(x, y, w, h, c){
    var rect = document.createElementNS(SVGNameSpace, "rect"); 
 
    // TODO: Implement me. Checkout docs at: http://www.w3schools.com/svg/svg_rect.asp
+   rect.setAttribute('x',x);
+   rect.setAttribute('y',y);
+   rect.setAttribute('width',w);
+   rect.setAttribute('height',h);
+
+
+   rect.style.fill = c;
 
    return rect; 
 }
@@ -73,6 +80,11 @@ function makeCircle(x, y, r, c){
    var circ = document.createElementNS(SVGNameSpace, "circle"); 
 
     // TODO: Implement me. Checkout docs at: http://www.w3schools.com/svg/svg_circle.asp
+    circle.setAttribute('x',x);
+    circle.setAttribute('y',y);
+    circle.setAttribute('radius',r);
+
+    circle.style.fill = c;
 
    return circ;
 
