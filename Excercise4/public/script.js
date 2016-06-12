@@ -43,14 +43,36 @@ function drawBoard(state){
     // we can manipulate it via calls to the jQuery API. 
     var svg = $(makeSVG(W, H));
 
+
     // TODO: Implement board drawing.
     console.log(state.size);
+    var width = 1+((W-10)/state.size);
+    var height = 1+((H-10)/state.size);
+    var posx = 0;
+    var posy = 10;
     for (var i =0; i < state.size; i++){
-        console.log(state.board[i]);
+        if (i != 0){
+        posy += height;         
+        }
+        posx = 10;
+        svg.append(makeLine(posx,posy,W-10,posy,"black",2));
+        for (var j =0; j < state.size; j++){
+            svg.append(makeLine(posx,posy,posx,H-10,"black",2));
+            posx+= width;
+            if (state.board[i][j] == 1){
+                svg.append(makeCircle(posx,posy,10,"black"));
+            } else if (state.board[i][j] == 2){
+                svg.append(makeCircle(posx,posy,10,"grey"));
+            }
+            
+        }
     }
+    svg.append(makeLine(posx,posy,posx,H-10,"black",2));
+    svg.append(makeLine(posx,posy,W-10,posy,"black",2));
     //  You will want to append elements to the 
     //  svg variable using the svg.append(....) 
     //  method. 
+
 
     // append the svg object to the canvas object.
     canvas.append(svg);
