@@ -85,6 +85,8 @@ function makeCircle(x, y, r, c){
     circ.setAttribute('r',r);
 
     circ.style.fill = c;
+    circ.style.stroke = "black";
+    circ.style.strokeWidth = 1; 
 
    return circ;
 

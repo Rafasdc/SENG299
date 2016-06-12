@@ -46,9 +46,10 @@ function drawBoard(state){
 
     // TODO: Implement board drawing.
     console.log(state.size);
-    var width = 1+((W-10)/state.size);
-    var height = 1+((H-10)/state.size);
-    var posx = 0;
+    svg.append(makeRectangle(10,10,W-20,H-20,"burlywood"));
+    var width = Math.abs((W-20)/state.size);
+    var height = Math.abs((H-20)/state.size);
+    var posx = 10;
     var posy = 10;
     for (var i =0; i < state.size; i++){
         if (i != 0){
@@ -62,13 +63,12 @@ function drawBoard(state){
             if (state.board[i][j] == 1){
                 svg.append(makeCircle(posx,posy,10,"black"));
             } else if (state.board[i][j] == 2){
-                svg.append(makeCircle(posx,posy,10,"grey"));
+                svg.append(makeCircle(posx,posy,10,"white"));
             }
-            
         }
     }
-    svg.append(makeLine(posx,posy,posx,H-10,"black",2));
-    svg.append(makeLine(posx,posy,W-10,posy,"black",2));
+    svg.append(makeLine(10,H-10,W-10,H-10,"black",2));
+    svg.append(makeLine(W-10,10,W-10,H-10,"black",2));
     //  You will want to append elements to the 
     //  svg variable using the svg.append(....) 
     //  method. 
