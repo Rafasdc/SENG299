@@ -43,19 +43,13 @@ function drawBoard(state){
     // we can manipulate it via calls to the jQuery API.
     var svg = $(makeSVG(W, H));
 
-
-    // TODO: Implement board drawing.
     var size = state.size;
-    console.log(state.size);
-
     var width = Math.floor((W-20)/state.size);
-    console.log(width);
     var height = Math.floor((H-20)/state.size);
     var posx = 20;
     var posy = 20;
 
     svg.append(makeRectangle(20,20,(width*size)-width,(height*size)-height,"burlywood"));
-
     for (var i =0; i < state.size; i++){
         if (i != 0){
         posy += height;
@@ -63,7 +57,6 @@ function drawBoard(state){
         posx = 20;
         svg.append(makeLine(posx,posy,(width*(size-1))+20,posy,"black",2));
         for (var j =0; j < state.size; j++){
-
             if (j != 0){
               posx+= width;
             }
